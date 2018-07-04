@@ -1,0 +1,32 @@
+{
+  "name": "thoughts-server",
+  "version": "1.0.0",
+  "description": "Server for thoughts.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "build": "tsc -p .",
+    "start:dev": "ts-node ./src/index.ts",
+    "clean": "rm -rf ./dist",
+    "watch": "tsc -w -p .",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "dist": "npm run clean && npm run build && zip dist/thought-server.zip -r dist package.json package-lock.json",
+    "deploy": "npm run dist && eb deploy env-name"
+  },
+  "keywords": [
+    "thoughts",
+    "server"
+  ],
+  "author": "Vahid Mazdeh",
+  "license": "ISC",
+  "dependencies": {
+    "restify": "^7.2.1"
+  },
+  "devDependencies": {
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}
